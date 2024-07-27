@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title> Image Upload </title>
+  
+{% endblock head %}
+
+{% block main %}
+    <div class="mt-6">
+        <section class="text-gray-400 body-font bg-gray-900 min-h-screen">
+            <div class="container px-5 py-20 mx-auto flex flex-col items-center justify-center mt-10">
+                <h1 class="text-green-400 text-2xl font-bold mb-10"> </h1>
+                <form action="/get_data" method="post" enctype="multipart/form-data" class="p-4 sm:w-96 w-full flex flex-col justify-start items-center green-glassmorphism mx-auto">
+                    <label class="block text-black font-bold mb-2 text-xl" for="name">Name:</label>
+                    <input type="text" id="namee" name="namee" class="shadow appearance-none border border-black rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline text-lg" />
+
+                    <label class="block text-black font-bold mb-2 text-xl mt-4" for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="shadow appearance-none border border-black rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline text-lg" />
+
+                    <div class="mt-4">
+                        <label class="block text-black font-bold mb-2 text-xl" for="file">Upload File:</label>
+                        <input type="file" id="file" name="file" class="shadow appearance-none border border-black rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline text-lg" />
+                    </div>
+
+
+                    <div class="mt-4">
+                        <button type="submit" onclick="submitForm()" class="bg-green-600 hover:bg-green-700 text-blue font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-xl color:black">
+                            Upload
+                        </button>
+                    </div>
+                    
+                  
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        function submitForm() {
+            // Hide form elements and display the spinner
+            document.getElementById("spinner").style.display = "block";
+
+            // Perform any additional actions before form submission
+            document.getElementById("file").disabled = true; // Example: Disable the file input
+
+            // Submit the form
+            document.getElementById("uploadForm").submit();
+        }
+        
+    </script>
+{% endblock main %}
+
+

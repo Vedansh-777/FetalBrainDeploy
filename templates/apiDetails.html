@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title>API Key Display</title>
+  <style>
+
+    #api {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin :100px;
+      }
+
+    .api-key-box {
+      background-color: black;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      height : 50vh;
+      width : 100vh
+    }
+
+    .copy-icon {
+      cursor: pointer;
+    }
+
+    .copy-message {
+      margin-top: 10px; /* Adjust the margin as needed */
+      color: #00cc99; /* Green color for the message */
+      display: none; /* Initially hide the message */
+    }
+
+    #apiKey {
+        width: 60%;
+        border: none;
+        outline: none;
+      }
+
+      .centered-div {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem; /* Adjust the margin as needed */
+      }
+  </style>
+{% endblock head %}
+
+{% block main %}
+<div id="api">
+    <section class="text-white-400 body-font bg-white-900 min-h-screen">
+      <div class="container px-5 py-20 mx-auto flex flex-col items-center justify-center mt-10">
+
+        <!-- Black background box -->
+        <div class="api-key-box">
+          <h1 class="text-white text-2xl font-bold mt-4 text-center">API Key Display</h1><br><br>
+          
+          <!-- Display API key and copy icon in the same line -->
+          <div class="mt-4 flex items-center centered-div">
+          
+            <input type="text" id="apiKey" name="apiKey" class="shadow appearance-none border border-black rounded w-full py-2 px-3 text-white-700 leading-tight focus:outline-none focus:shadow-outline text-lg" value="http://127.0.0.1:5000/get_results_api_yolov7" readonly />
+            <span onclick="copyToClipboard()" class="copy-icon bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-xl">
+              📋
+            </span>
+          </div>
+
+          <!-- Copy message -->
+          <div id="copyMessage" class="copy-message centered-div"></div>
+        </div>
+
+      </div>
+    </section>
+
+  
+  <script>
+    function copyToClipboard() {
+      /* Get the text field */
+      var apiKeyField = document.getElementById("apiKey");
+
+      /* Select the text field */
+      apiKeyField.select();
+      apiKeyField.setSelectionRange(0, 99999); /* For mobile devices */
+
+      /* Copy the text inside the text field to the clipboard */
+      document.execCommand("copy");
+
+      /* Display the copied message */
+      var copyMessage = document.getElementById("copyMessage");
+      copyMessage.innerHTML = "Copied to clipboard!";
+      copyMessage.style.display = "block";  // Show the message
+      setTimeout(function() {
+        copyMessage.style.display = "none";  // Hide the message after 3 seconds
+      }, 1000);
+    }
+  </script>
+</div>
+{% endblock main %}
+

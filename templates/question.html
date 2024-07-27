@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Health Questionnaire</title>
+    <!-- Include SurveyJS library -->
+    <script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/survey-jquery@1.9.127/survey.jquery.min.js"></script>
+    <script src="https://unpkg.com/survey-jquery@1.9.127/themes/index.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/survey-jquery@1.9.127/defaultV2.min.css" />
+    
+</head>
+<body>
+    <!-- Survey container -->
+    <div id="surveyContainer"></div>
+
+    <!-- Your JavaScript code to define the survey -->
+    <script>
+        // Define your survey JSON
+        var surveyJSON = {
+            title: "Pregnancy Health Questionnaire",
+            pages: [
+                {
+                    questions: [
+                        {
+                            type: "text",
+                            name: "age",
+                            title: "What is your age?",
+                        },
+                        {
+                            type: "text",
+                            name: "weeksPregnant",
+                            title: "How many weeks pregnant are you?",
+                        }
+                    ]
+                },
+                {
+                    title: "Ultrasound and Imaging",
+                    questions: [
+                        {
+                            type: "radiogroup",
+                            name: "ultrasoundExaminations",
+                            title: "Have you had any ultrasound examinations during this pregnancy?",
+                            choices: ["Yes", "No"]
+                        },
+                        {
+                            type: "comment",
+                            name: "unusualUltrasoundReport",
+                            title: "Did the ultrasound report mention anything unusual?",
+                        }
+                    ]
+                },
+                {
+                    title: "Common Symptoms",
+                    questions: [
+                        {
+                            type: "checkbox",
+                            name: "pregnancySymptoms",
+                            title: "Have you experienced any of the following symptoms during this pregnancy? (Check all that apply)",
+                            choices: [
+                                "Persistent headaches",
+                                "Unusual head or neck pain",
+                                "Changes in vision",
+                                "Unusual sensations or pain in the head",
+                                "Changes in consciousness",
+                                "Developmental delays or unusual movements in the baby"
+                            ]
+                        },
+                        {
+                            type: "comment",
+                            name: "symptomsDetails",
+                            title: "If you selected any symptoms above, please provide additional details.",
+                        }
+                    ]
+                },
+                {
+                    title: "Additional Comments",
+                    questions: [
+                        {
+                            type: "comment",
+                            name: "additionalComments",
+                            title: "Is there anything else you would like to share or any concerns on your mind?",
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Create the survey
+        var survey = new Survey.Model(surveyJSON);
+
+        // Render the survey in the container
+        survey.render("surveyContainer");
+    </script>
+</body>
+</html>

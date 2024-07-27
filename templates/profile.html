@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table</title>
+    
+    <link href="https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Add CSS for hover effect */
+        .hover-zoom {
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .hover-zoom:hover {
+            transform: scale(1.3);
+        }
+    </style>
+
+    <style>
+        body, html {
+            margin: 8vh;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        #tabulator-table {
+            width: 100%;
+            height: 700px; /* Adjust the height as needed */
+            background-color: white;
+        }
+        .tabulator-col-title {
+            height: 40px; /* Set the desired height */
+            line-height: 40px; /* Match line-height to the height for vertical centering */
+        }
+        h3 {
+            font-size: 36px;
+            color: #0F2167;
+            margin-bottom: 20px;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="container-fluid">
+        <h3 class="text-blue">Profile</h3>
+
+        <div id="tabulator-table"></div>
+
+        <!-- Modal To download and preview Image HTML -->
+        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="" style="max-width:100%;max-height:500px;" alt="Image Preview">
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" download="image.jpg" class="btn btn-primary">Download Image</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- ... (your existing code) ... -->
+
+<!-- Add Bootstrap CSS and JS links -->
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var username = "{{ session['uname'] }}";
+
+        $.ajax({
+            url: '/get_tabulator_data',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ uname: username }),
+            success: function (data) {
+                console.log(data);
+
+                var table = new Tabulator("#tabulator-table", {
+                    data: data.result,
+                    layout: "fitColumns",
+                    pagination: "local",
+                    paginationSize: 10,
+                    paginationSizeSelector: [3, 6, 8, 10],
+                    movableColumns: true,
+                    paginationCounter: "rows",
+                    layout: "fitDataFill",
+                    columns: [
+                        {
+                            title: 'Date',
+                            field: 'date',
+                            sorter: 'datetime', // Use 'datetime' sorter for dates
+                            sorterParams: {
+                                format: 'YYYY-MM-DD HH:mm:ss', // date format
+                                alignEmptyValues: 'bottom',
+                            },
+                            width: '20%',
+                            formatter: 'datetime',
+                            formatterParams: {
+                                outputFormat: 'YYYY-MM-DD HH:mm:ss', // output format
+                            },
+                            headerSortStartingDir: 'desc', // Default sorting direction
+                        },
+                        {
+                            title: 'Uploaded Image',
+                            field: 'upload_image',
+                            formatter: function (cell, formatterParams, onRendered) {
+                                return generateImageWithModal(cell.getValue());
+                            },
+                            width: '40%',
+                        },
+                        {
+                            title: 'Annotated Image',
+                            field: 'annotated_image',
+                            formatter: function (cell, formatterParams, onRendered) {
+                                return generateImageWithModal(cell.getValue());
+                            },
+                            width: '40%',
+                        },
+                    ],
+                    headerVisible: true,
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
+            },
+        });
+
+        function generateImageWithModal(base64ImageData) {
+            // Generate HTML for image with modal
+            return '<a href="#" data-toggle="modal" data-target="#imageModal" data-image="' + base64ImageData + '">' +
+                '<img src="data:image/jpeg;base64,' + base64ImageData + '" class="hover-zoom" style="max-width:100%;max-height:200px;">' +
+                '</a>';
+        }
+
+        // Handling modal functionality
+        $('#imageModal').on('show.bs.modal', function (event) {
+            var imageSource = $(event.relatedTarget).data('image');
+            var modal = $(this);
+            modal.find('.modal-body img').attr('src', 'data:image/jpeg;base64,' + imageSource);
+
+            // Set download link in the modal
+            modal.find('.modal-footer a').attr('href', 'data:image/jpeg;base64,' + imageSource);
+        });
+    });
+</script>
+
+</div>
+{% endblock %}
+
+
+
+

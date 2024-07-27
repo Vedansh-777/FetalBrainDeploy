@@ -1,0 +1,870 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title> FetalBrainInsight </title>
+  <style>
+    dd{
+      margin-bottom: 30px;
+      text-content: justify;
+    }
+
+    #anomaly_1{
+      margin-right: 30px;
+    }
+
+  </style>
+{% endblock head %}
+
+{% block hero %}
+
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h1 data-aos="fade-up">Fetal Brain Anomalies Detection and Classification</h1>
+        <h2 data-aos="fade-up" data-aos-delay="400">
+          FetalBrainInsight provides a powerful model for easy detection and classification of Fetal Brain Anomalies right at your fingertips.
+        </h2>
+        <div data-aos="fade-up" data-aos-delay="600">
+          <div class="text-center text-lg-start">
+            <a href="/user#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <span>Get Started</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <img src="{{ url_for('static',filename='custom/hero-main.png') }}" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock hero %}
+
+{% block main %}
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <div class="container" data-aos="fade-up">
+      <div class="row gx-0">
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="content">
+            <h3>Who We Are</h3>
+            <h2>Our main aim is to provide faster diagnostic results so that treatment can be given faster to those who require.</h2>
+            <p>
+              With this application, people can easily scan the Ultrasound images to detect any brain Anomaly, without any medical assist, thus making the process faster and more feasible.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+          <img src="{{ url_for('static',filename='custom/about.png') }}" class="img-fluid" alt="">
+        </div>
+
+      </div>
+    </div>
+
+  </section><!-- End About Section -->
+
+  <!-- ======= Values Section ======= -->
+  <section id="values" class="values">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>Our Values</h2>
+        <p>What does our website offer?</p>
+      </header>
+
+      <div class="row">
+
+        <div class="col-lg-4">
+          <div class="box" data-aos="fade-up" data-aos-delay="200">
+            <img src="{{ url_for('static',filename='img/values-1.png') }}" class="img-fluid" alt="">
+            <h3>Easy access from anywhere</h3>
+            <p>This easy to use webapp can be accessed from any smart phone with internet connection.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="box" data-aos="fade-up" data-aos-delay="400">
+            <img src="{{ url_for('static',filename='img/values-2.png') }}" class="img-fluid" alt="">
+            <h3>Fast and accurate results</h3>
+            <p>It takes only a minute or two to get the correct results. Thus users dont need to get a doctor's appointment separately anymore. </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="box" data-aos="fade-up" data-aos-delay="600">
+            <img src="{{ url_for('static',filename='img/values-3.png') }}" class="img-fluid" alt="">
+            <h3>Generate medical report</h3>
+            <p>Our website also provides the option to save the report in their profile, to download the report on their device and to share it directly via email.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- End Values Section -->
+
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>Features</h2>
+        <p>What makes our website unique?</p>
+      </header>
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <img src="{{ url_for('static',filename='img/features.png') }}" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
+          <div class="row align-self-center gy-4">
+
+            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>Faster report analysis</h3>
+              </div>
+            </div>
+
+            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>Easy to use</h3>
+              </div>
+            </div>
+
+            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>Supports multiple image formats</h3>
+              </div>
+            </div>
+
+            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>Saves the generated report</h3>
+              </div>
+            </div>
+
+            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>Easy to share</h3>
+              </div>
+            </div>
+
+            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="700">
+              <div class="feature-box d-flex align-items-center">
+                <i class="bi bi-check"></i>
+                <h3>Accurate results</h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div> <!-- / row -->
+
+    </div>
+
+  </section><!-- End Features Section -->
+
+
+  <!-- ======= Anomalies Section ======= -->
+  <section id="anomalies" class="anomalies">
+  <!-- Replace "img src" with the actual image URLs -->
+<div class="modal fade" id="cardDetailsModal1" tabindex="-1" aria-labelledby="cardDetailsModalLabel1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel1">Anomaly : Anold chiari malformation</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/1.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Anold chiari malformation</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Chiari malformation are structural defects in the cerebellum. Brain tissue extends into the spinal canal. 
+                    It can happen when part of the skull is too small, which pushes the brain tissue down</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Chiari malformation means that the part of the brain called the cerebellar tonsils that extend below the level of the foramen magnum 
+                    (the opening at the base of the skull through which the spinal cord passes).</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal2" tabindex="-1" aria-labelledby="cardDetailsModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel2">Anomaly : Arachnoid cys</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/2.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Arachnoid cys</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Chiari malformation are structural defects in the cerebellum. Brain tissue extends into the spinal canal. 
+                    It can happen when part of the skull is too small, which pushes the brain tissue down</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Chiari malformation means that the part of the brain called the cerebellar tonsils that extend below the level of the foramen magnum 
+                    (the opening at the base of the skull through which the spinal cord passes).</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal3" tabindex="-1" aria-labelledby="cardDetailsModalLabel3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel3">Anomaly : Cerebellar hypoplasia</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/3.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Cerebellar hypoplasia</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Cerebellar hypoplasia is a congenital condition where the cerebellum is underdeveloped.</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">cerebellar hypoplasia may result in a "bat-wing" or "butterfly" appearance of the cerebellum. Examine both cerebellar hemispheres for any size discrepancy or irregularities.</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal4" tabindex="-1" aria-labelledby="cardDetailsModalLabel4" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel4">Anomaly : Cisterna Magna</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/4.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Cisterna Magna</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">A cerebrospinal fluid (CSF) filled space in the posterior cranial fossa of the brainstem and cerebellum</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">The cisterna magna is like a dark space in the brain that looks like cerebrospinal fluid. It's surrounded by brain tissue and separated from the cerebellum and brainstem by a thin layer. 
+
+                    In medical terms, although the cisterna magna is usually a normal part of the brain, doctors may be concerned if it's bigger than 10 mm because that could be an issue.
+                    </dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal5" tabindex="-1" aria-labelledby="cardDetailsModalLabel5" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel5">Anomaly : Colpocephaly</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/5.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Colpocephaly</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Colpocephaly is a congenital brain abnormality in which the occipital horns (the posterior portion of the lateral ventricles of the brain) are larger than normal.
+
+                  </dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Colpocephaly is when the back parts of the brain's fluid-filled spaces, called ventricles, look too big. Normally, these back parts should look narrow and pointy, but in colpocephaly, they seem wider and can even look like balloons.</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal6" tabindex="-1" aria-labelledby="cardDetailsModalLabel6" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel6">Anomaly : Encephalocele</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/6.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Encephalocele</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Encephalocele is a sac-like protrusion or projection of the brain and the membranes that cover it through an opening in the skull.
+
+                  </dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Check for any unusual bulges of brain tissue, sometimes with the brain's protective covering, coming through a hole in the skull. These can happen in different parts of the skull. Doctors might use a MRI with a contrast dye to see if there are any blood vessels linked to the bulge.</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal7" tabindex="-1" aria-labelledby="cardDetailsModalLabel7" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel7">Anomaly : Holoprosencephaly</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/7.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Holoprosencephaly</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Holoprosencephaly is a condition that happens when the front part of the brain, called the prosencephalon, doesn't split into two lobes like it should. Instead, it stays as one lobe, leading to significant skull and facial problems.</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Look for the middle part of the brain's lobes at the front are stuck together or not separated correctly. In severe cases, there might be just one fused lobe. Sometimes, the part that connects the two brain halves, called the corpus callosum, can be missing or not look right.</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal8" tabindex="-1" aria-labelledby="cardDetailsModalLabel8" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel8">Anomaly : Hydranencephaly </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/8.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Hydranencephaly</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Hydranencephaly is a rare condition in which the brain's cerebral hemispheres are absent and replaced by sacs filled with cerebrospinal fluid.</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Check for absence of brain hemispheres. Instead of seeing regular brain tissue, you'll find big sacs filled with fluid in the space where the brain should be. These sacs are filled with cerebrospinal fluid, which appear bright in MRI.</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal9" tabindex="-1" aria-labelledby="cardDetailsModalLabel9" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel9">Anomaly : Intracranial hemorrhage</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/9.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Intracranial hemorrhage</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Intracranial hemorrhage means bleeding inside the space inside the skull, which includes the brain and the membranes around it.</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Look for areas within the fetal brain MRI where the signal intensity appears different from the surrounding tissue. Hemorrhage typically appears as hyperintense (bright) regions
+
+                  </dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal10" tabindex="-1" aria-labelledby="cardDetailsModalLabel10" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel10">Anomaly : Intracranial tumor</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/10.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Intracranial tumor</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Intracranial tumor means there's an unusual lump or mass growing inside the baby's brain while it's still developing in the womb.
+
+                  </dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Search for a clear and distinct lump that looks different from the nearby tissue. Tumors can be different sizes and can be found in various parts of the brain.
+
+                  </dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal11" tabindex="-1" aria-labelledby="cardDetailsModalLabel11" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel11">Anomaly : Ventriculomegaly</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/11.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Ventriculomegaly</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Ventriculomegaly is defined as dilation of the fetal cerebral ventricles</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">Find the C-shaped fluid spaces in the baby's brain called lateral ventricles. When they get bigger, it's ventriculomegaly. Mild ventriculomegaly is slightly wider than normal, around 10-12 millimeters, and moderate ventriculomegaly is a bit larger, about 13-15 millimeters. But the exact numbers can change depending on medical guidelines and gestational age.</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cardDetailsModal12" tabindex="-1" aria-labelledby="cardDetailsModalLabel12" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="cardDetailsModalLabel12">Anomaly : Porencephaly </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex flex-row bd-highlight mb-6">
+            <img src="static/img/Anomalies/12.png" class="img-fluid p-2 bd-highlight" alt="Card 1 Image" id="anomaly_1" width="300" height="300">
+
+              <!-- Other content about the card -->
+
+              <!--card1 -->
+              <div class="d-flex flex-column bd-highlight mb-3">
+              <h3 style="text-align: center"><b>Porencephaly</b></h3><br><br>
+                <dl class="row">
+                  <dt class="col-sm-3">Description :</dt>
+                  <dd class="col-sm-9 text-justify">Porencephaly is a rare congenital brain disorder characterized by the presence of cysts or cavities within the brain parenchyma. These cavities are typically filled with cerebrospinal fluid (CSF) and are often the result of injury or damage to the developing brain.</dd><br><br>
+                    <dt class="col-sm-3">How to Identify:</dt>
+                  <dd class="col-sm-9 text-justify">When checking for porencephaly, search for parts in the brain that look like clear, rounded, or uneven spots. These cysts in porencephaly stand out because they're brighter than the normal brain tissue.</dd>
+              </p></div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Repeat the modal for each card -->
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>Anomalies</h2>
+        <p>Types of Fetal Brain Anomalies?</p>
+      </header>
+
+  
+        <div class="row">
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/1.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Anold chiari malformation</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal1">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/2.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Arachnoid cys</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal2">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/3.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Cerebellar hypoplasia</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal3">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/4.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Cisterna Magna</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal4">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/5.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Colpocephaly</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal5">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/6.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Encephalocele</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal6">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/7.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Holoprosencephaly</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal7">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/8.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Hydranencephaly</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal8">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/9.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Intracranial hemorrhage</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal9">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/10.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Intracranial tumor</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal10">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/11.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Ventriculomegaly</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal11">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-7" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="card" style="width: 18rem;">
+              <a href="#m">
+                <img class="card-img-top" src="{{ url_for('static',filename='img/Anomalies/12.png') }}" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Porencephaly</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cardDetailsModal12">View Details</button>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Anomalies Section -->
+
+
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-header">
+        <h2>Additional Information</h2>
+        <p></p>
+      </header>
+
+      <div class="row gy-4">
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-box blue">
+            <i class="ri-discuss-line icon"></i>
+            <h3>User Instructions</h3>
+            <p> Create an account on our website and simply upload your Ultrasound scans to get results. Provides easy option to share the results directly</p>
+            <a href="instruct" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-box orange">
+            <i class="ri-discuss-line icon"></i>
+            <h3>Upload Image</h3>
+            <p>Upload Ultrasound Image of fetal brain to get the results.</p>
+            <a href="\data" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-box green">
+            <i class="ri-discuss-line icon"></i>
+            <h3>API</h3>
+            <p>Click here to get a api key to access our project.</p>
+            <a href="/get_api_details" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- End Services Section -->
+
+  <!-- ======= Team Section ======= -->
+  <section id="team" class="team">
+
+    <div class="container" data-aos="fade-up" >
+
+      <header class="section-header">
+        <h2>Team</h2>
+        <p>Our hard working team</p>
+      </header>
+
+      <div class="row gy-4" style="display: flex; flex-wrap: nowrap; overflow-x: auto;">
+
+        <div class="col-lg-3 col-md-6" style="max-height: 250px" d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="member" >
+            <div class="member-img">
+              <img src="{{ url_for('static',filename='img/team/team-1.jpg') }}" class="img-fluid" alt="" height="100">
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info" height="100">
+              <h4>Vedansh Udhawani</h4>
+              <span>VESIT</span>
+              <p> </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="member">
+            <div class="member-img">
+              <img src="{{ url_for('static',filename='img/team/team-3.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Romesh Lulla</h4>
+              <span>VESIT</span>
+              <p> </p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="member">
+            <div class="member-img">
+              <img src="{{ url_for('static',filename='img/team/team-3.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Chirag Dodeja</h4>
+              <span>VESIT</span>
+              <p> </p>
+            </div>
+          </div>
+        </div>
+
+
+<!--        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">-->
+<!--        </div>-->
+
+        <div class="col-lg-3 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="member">
+            <div class="member-img">
+              <img src="{{ url_for('static',filename='img/team/team-3.jpg') }}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-instagram"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Abhishek Chhabria</h4>
+              <span>VESIT</span>
+              <p> </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- End Team Section -->
+
+{% endblock main %}
